@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require("express");
+const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,6 +13,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// cors middleware
+app.use(
+    cors({
+        origin: ['http://localhost:5000', 'http://localhost:3000'],
+        Credentials: true
+    })
+);
 
 app.get('/', (request, response) => {
     response.send({message: 'Welcome to the Randomideas App'});
