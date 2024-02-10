@@ -26,7 +26,7 @@ class IdeaList {
             </h3>
             <p class="tag tag-${data.tag.toLowerCase()}">${data.tag.toUpperCase()}</p>
             <p>
-              Posted on <span class="date">January 1, 2022</span> by
+              Posted on <span class="date">${data.date.substring(0, 10)}</span> by
               <span class="author">${data.username}</span>
             </p>
           </div>
